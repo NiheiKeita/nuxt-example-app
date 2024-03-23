@@ -1,4 +1,4 @@
-import type { Ref } from "vue";
+import type { Ref } from 'vue';
 const inc = (counter: Ref<number>) => () => counter.value++;
 const dec = (counter: Ref<number>) => () => counter.value--;
 
