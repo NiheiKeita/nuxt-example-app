@@ -9,4 +9,7 @@ export default defineNuxtConfig({
     },
   },
   components: ['@/components'],
+  imports: {
+    autoImport: false,
+  },
 });
