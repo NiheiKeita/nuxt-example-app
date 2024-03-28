@@ -2,7 +2,6 @@
   import { useCounter } from './hooks';
 
   const { counter, inc, dec } = useCounter();
-  const xxx = '';
 </script>
 
 <template>
