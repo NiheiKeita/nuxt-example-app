@@ -1,12 +1,25 @@
-import { render } from '@storybook/testing-library';
-import { composeStories } from '@storybook/testing-vue3';
-import * as Stories from './index.stories';
+import { expect } from '@storybook/test';
+import { screen } from '@storybook/testing-library';
+import CountView from './index.vue';
 
-// eslint-disable-next-line storybook/story-exports
-export default {};
-const { InputFilled } = composeStories(Stories);
-test('タスク名を入力して追加ボタンをクリックするとリストに追加される', async () => {
-  const { container } = render(InputFilled());
-  // eslint-disable-next-line storybook/context-in-play-function
-  await Stories.InputFilled.play?.({ canvasElement: container } as any);
-});
+export default {
+  title: 'Views/CountView',
+  component: CountView,
+  parameters: {
+    layout: 'fullscreen',
+  },
+};
+export const Test = {
+  render: () => ({
+    components: {
+      CountView,
+    },
+    template: '<CountView />',
+  }),
+  play: async () => {
+    const incButton = await screen.findByTestId('inc-button');
+    expect(incButton);
+    const decButton = await screen.findByTestId('dec-button');
+    expect(decButton);
+  },
+};
