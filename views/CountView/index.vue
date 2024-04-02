@@ -7,7 +7,7 @@
 <template>
   <div class="bg-red-600">
     カウンター: {{ counter }}
-    <button @click="inc">+</button>
-    <button @click="dec">-</button>
+    <button data-testid="inc-button" @click="inc">+</button>
+    <button data-testid="dec-button" @click="dec">-</button>
   </div>
 </template>
